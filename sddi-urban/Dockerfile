@@ -1,9 +1,9 @@
 # #############################################################################
 # # Build stage
 # #############################################################################
-ARG BASEIMAGE_REPOSITORY=ghcr.io/tum-gis/ckan-sddi-base
-ARG BASEIMAGE_VERSION=latest
-ARG CKAN_VERSION_BUILD_STAGE=2.10.1-dev
+ARG BASEIMAGE_REPOSITORY=ghcr.io/it-at-m/ckan-sddi-base
+ARG BASEIMAGE_VERSION=edge
+ARG CKAN_VERSION_BUILD_STAGE=edge
 
 FROM ckan/ckan-base:${CKAN_VERSION_BUILD_STAGE} as extbuild
 
