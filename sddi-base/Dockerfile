@@ -149,7 +149,7 @@ ENV CKAN__PLUGINS "image_view text_view recline_view webpage_view datastore data
   envvars"
 
 # Extra env for compatibility with ckan/base Docker images for downstream k8s
-ENV CKAN_INI=${APP_DIR}/production.ini
+ENV CKAN_INI=${APP_DIR}/ckan.ini
 ENV CKAN_STORAGE_PATH=/var/lib/ckan
 ENV TZ="UTC"
 
@@ -216,7 +216,7 @@ RUN set -ex && \
   pip install --no-index --find-links=${APP_DIR}/ext_wheels ckanext-password-policy
 
 # Copy init scripts and additional files
-COPY --chown=ckan:ckan initScripts/ ${APP_DIR}/docker-afterinit.d
+COPY --chown=ckan:ckan initScripts/ /docker-entrypoint.d/
 COPY --chown=ckan:ckan who.ini ${APP_DIR}/who.ini
 
 RUN set -ex && \
