@@ -1,0 +1,277 @@
+{% extends "package/edit_base.html" %}
+
+{% block primary_content_inner %}
+<html>
+    <head><title>DCAT-AP.de Hinweise</title></head>
+    <body>
+        <h2>DCAT-AP.de Hinweise</h2>
+        <p>Damit der Datensatz für GovData übernommen ("ge-harvestet") werden kann,
+           müssen die Metadaten-Felder des Datensatzes bestimmte Eigenschaften aufweisen.
+           Maßgeblich dabei ist das <a href="https://www.dcat-ap.de/def/dcatde/2.0/implRules">
+           DCAT-AP.de Konventionenhandbuch</a>.
+        </p>
+           <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Metadaten-Feld Name</th>
+                    <th>Eigenschaft / Wert</th>
+                    <th>Beispiel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Titel</td>
+                    <td>Titel des Datensatzes
+                        <br><i>muss ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#redundante-angaben-im-titel">weitere Hinweise</a>
+                    </td>
+                    <td>Hundekot-Sammelorte</td>
+                </tr>
+                <tr>
+                    <td>Beschreibung</td>
+                    <td>Beschreibung des Datensatzes
+                        <br><i>muss ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/spec/#datensatz-beschreibung">weitere Hinweise</a>
+                    </td>
+                    <td>Geo-Koordinaten der Sammelorte</td>
+                </tr>
+                <tr>
+                    <td>Tags</td>
+                    <td>Hier muss zumindest "GovData-Harvesting" enthalten sein.
+                    </td>
+                    <td>GovData-Harvesting</td>
+                </tr>
+                <tr>
+                    <td>Lizenz</td>
+                    <td>Lizenz der Ressourcen
+                        <br><i>muss ausgefüllt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#angaben-zur-lizenz-und-zu-rechten">weitere Hinweise</a>
+                    </td>
+                    <td><a target="_blank" href="http://dcat-ap.de/def/licenses/dl-by-de/1.0">
+                        http://dcat-ap.de/def/licenses/dl-by-de/1.0</a> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quelle</td>
+                    <td>Hier sollte die öffentliche Url des Amts stehen. Ansonsten "https://www.muenchen.de/"
+                        <br><i>sollte ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/spec/#datensatz-ursprungliche-webseite">weitere Hinweise</a>
+                    </td>
+                    <td>https://www.muenchen.de/</td>
+                </tr>
+                <tr>
+                    <td>Version</td>
+                    <td>Versionsnummer (sollte zumindest 1.0 sein)
+                        <br>kann ausgefüllt werden
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#angaben-zur-versionierung">weitere Hinweise</a>
+                    </td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>Autor</td>
+                    <td>Name des Autors. Eine Entpersonalisierung wird empfohlen
+                        <br><i>sollte ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#weitere-wichtige-rollen">weitere Hinweise</a>
+                    </td>
+                    <td>Abteilung 12</td>
+                </tr>
+                <tr>
+                    <td>Email des Autors</td>
+                    <td>Email-Adresse. Eine Entpersonalisierung wird empfohlen<br><i>sollte ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#weitere-wichtige-rollen">weitere Hinweise</a>
+                    </td>
+                    <td>abteilung12@muenchen.de</td>
+                </tr>
+                <tr>
+                    <td>Verantwortlicher</td>
+                    <td>Name des Verantwortlichen. Eine Entpersonalisierung wird empfohlen. Idealerweise Ansprechstelle
+                        <br><i>sollte ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#ansprechstelle">weitere Hinweise</a>
+                    </td>
+                    <td>Abteilung 12</td>
+                </tr>
+                <tr>
+                    <td>Email des Verantwortlichen</td>
+                    <td>Email-Adresse. Eine Entpersonalisierung wird empfohlen.
+                        <br><i>muss ausgefüllt werden,</i>
+                        <br>wenn ein Verantwortlicher angegeben wird
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#ansprechstelle">weitere Hinweise</a>
+                    </td>
+                    <td>abteilung12@muenchen.de</td>
+                </tr>
+                <tr>
+                    <td>contributorID</td>
+                    <td>Kennzeichen des Datenbereitstellers (URI)
+                        <br><i>muss hinzugefügt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#eindeutige-kennzeichnung-der-datenbereitsteller">weitere Hinweise</a>
+                    </td>
+                    <td><a target="_blank" href="http://dcat-ap.de/def/contributors/landeshauptstadtMuenchen">
+                        http://dcat-ap.de/def/contributors/landeshauptstadtMuenchen</a> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>politicalGeocodingURI<br>(neuer Schlüssel)</td>
+                    <td>URI des Gemeindeschlüssels<br><i>kann hinzugefügt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#verwaltungspolitischer-geobezug-als-uri">weitere Hinweise</a>
+                    </td>
+                    <td><a target="_blank" href="http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09162000">
+                        http://dcat-ap.de/def/politicalGeocoding/municipalityKey/09162000</a> 
+                        (für München)</td>
+                </tr>
+                <tr>
+                    <td>politicalGeocodingLevelURI<br>(neuer Schlüssel)</td>
+                    <td>URI der Ebene des Geobezugs<br><i>kann hinzugefügt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#ebene-des-verwaltungspolitischen-geobezug-als-uri">weitere Hinweise</a>
+                    </td>
+                    <td><a target="_blank" href="http://dcat-ap.de/def/politicalGeocoding/Level/municipality">
+                        http://dcat-ap.de/def/politicalGeocoding/Level/municipality</a> 
+                        (für München)</td>
+                </tr>
+                <tr>
+                    <td>publisher_name<br>(neuer Schlüssel)</td>
+                    <td>Name des Herausgebers<br><i>muss hinzugefügt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#angaben-zum-herausgeber">weitere Hinweise</a>
+                    </td>
+                    <td>München</td>
+                </tr>
+                <tr>
+                    <td>publisher_email<br>(neuer Schlüssel)</td>
+                    <td>E-Mail des Herausgebers. Eine Entpersonalisierung wird empfohlen.
+                        <br><i>muss hinzugefügt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#angaben-zum-herausgeber">weitere Hinweise</a>
+                    </td>
+                    <td>info@opendata.muenchen.de</td>
+                </tr>
+                <!--<tr>
+                    <td>language<br>(neuer Schlüssel)</td>
+                    <td>Sprache des Datensatzes
+                        <br>kann hinzugefügt werden
+                    </td>
+                    <td><a href="http://publications.europa.eu/resource/authority/language/DEU" target="_blank">
+                        http://publications.europa.eu/resource/authority/language/DEU</a>
+                    </td>
+                </tr>
+                -->
+                <tr>
+                    <td>temporal_start<br>(neuer Schlüssel)</td>
+                    <td>Zeitbezug für Datensatz: Startzeitpunkt
+                        <br><i>muss hinzugefügt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#x2-5-angabe-des-abgedeckten-zeitraums-dcat-startdate-dcat-enddate">weitere Hinweise</a>
+                    </td>
+                    <td>2022-09-01</td>
+                </tr>
+                <tr>
+                    <td>temporal_end<br>(neuer Schlüssel)</td>
+                    <td>Zeitbezug für Datensatz: Endzeitpunkt
+                        <br><i>sollte hinzugefügt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#x2-5-angabe-des-abgedeckten-zeitraums-dcat-startdate-dcat-enddate">weitere Hinweise</a>
+                    </td>
+                    <td>2022-09-02</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <p>Zusätzlich müssen in den Ressourcen folgende Metadaten-Felder bestimmte Eigenschaften aufweisen.
+        </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Metadaten-Feld Name</th>
+                    <th>Eigenschaft / Wert</th>
+                    <th>Beispiel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>Name der Ressource. 
+                        <br><i>muss ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#redundante-angaben-im-titel">weitere Hinweise</a>
+                    </td>
+                    <td>Excel mit Geo-Koordinaten aus 2022</td>
+                </tr>
+                <tr>
+                    <td>Beschreibung</td>
+                    <td>Beschreibung der Ressource
+                        <br><i>sollte ausgefüllt werden</i>
+                        <br><a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/spec/#distribution-beschreibung">weitere Hinweise</a>
+                    </td>
+                    <td>Die Koordinaten sind im GeoJson-Format</td>
+                </tr>
+                <tr>
+                    <td>Lizenz Herausgeber</td>
+                    <td>Wer ist der Lizenz-Herausgeber?
+                        <br><i>muss ausgefüllt werden, wenn die lizenz das fordert<br></i>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#x2-2-2-angabe-von-by-texten">weitere Hinweise</a>
+                    </td>
+                    <td>OpenStreetMap (ODbL)</td>
+                </tr>
+                <tr>
+                    <td>Status / Zustand</td>
+                    <td>Status / Zustand der Ressource
+                        <br><i>muss ausgefüllt werden</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#x2-3-1-status-der-distribution-adms-status">weitere Hinweise</a>
+                    </td>
+                    <td><a target="_blank" href="http://purl.org/adms/status/Completed">
+                        http://purl.org/adms/status/Completed</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Format</td>
+                    <td>Format der Ressource
+                        <br><i>wird automatisch ausgefüllt</i><br>
+                        <a target="_blank" href="https://www.dcat-ap.de/def/dcatde/2.0/implRules/#angaben-zu-dateiformaten">weitere Hinweise</a>
+                        <br>zum Mapping siehe mehr unten<br>
+                    </td>
+                    <td>CSV
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Die dcat Eigenschaft dct:format und dcat:mediaType ansich sind nicht verpflichtend (jedoch stark empfohlen wenn möglich). Wenn gesetzt, verlangt govdata jedoch ein bestimmtes Vokabular, welches CKAN nicht verwendet.
+            Deshalb werden die folgenden Dateiformate von uns wie folgt gemappt:</p>
+         <pre>{{ format_mapping | tojson(indent=2) }}</pre>
+         <p>Wenn ein Dateiformat nicht in dieser Zuordnung vorhanden ist, werden die Metadatenfelder nicht erstellt.
+        </p>
+
+        <p>Wenn alle Metadaten diesen Kriterien entsprechen (und das Schlagwort / Tag gesetzt ist), lassen Sie den 
+          Datensatz am besten automatisiert prüfen.</p>
+        <h2>Diesen Datensatz für GovData bereitstellen</h2>
+        <p>Wenn dieser Datensatz an GovData übertragen werden soll, muss er
+            das Schlagwort / Tag 
+            <div class="card card-body">GovData-Harvesting</div>
+            besitzen.
+        </p>
+        <h2>DCAT-AP Prüfung</h2>
+        <p>Hier kann der aktuelle Datensatz auf DCAT-AP.de Konformität geprüft werden.</p>
+        <p>Die DCAT-AP.de Konformität ist wichtig für die Übertragung der Metadaten 
+            zum deutschen Open Data Portal <a href="govdata.de" target="_blank">GovData</a></p> 
+        <p>Dieser Datensatz wird mit folgender URL im RDF-Format dargestellt und validiert (siehe unten):</p>
+        <div class="card card-body">
+            <a href="{{ h.url_for(h.dcat_get_endpoint('catalog'), fq='name:'+pkg.name, _format='rdf', _external=True) }}" target="_blank">
+                {{ h.url_for(h.dcat_get_endpoint('catalog'), fq='name:'+pkg.name, _format='rdf', _external=True) }}
+            </a>
+        </div>       
+        <h2>Prüfung durchführen</h2>
+        <p>Die Prüfung des Datensatzes und seiner Ressourcen kann hier gestartet werden. 
+            Die Prüfung wird mit dem
+            <a href="https://www.itb.ec.europa.eu/shacl/dcat-ap.de/upload" target="_blank">
+                EU Validator für DCAT-AP.de
+            </a> durchgeführt. Das Ziel ist eine fehlerfreie Validierung.
+        </p>
+
+        <form method="POST" enctype="multipart/form-data" action="https://www.itb.ec.europa.eu/shacl/dcat-ap.de/uploadm" target="output">
+            <input style="display:none" type="text" name="uri" value="{{ h.url_for(h.dcat_get_endpoint('catalog'), fq='name:'+pkg.name, _format='rdf', _external=True) }}">
+            <input type="hidden" name="validationType" value="v20_de_spec_implr">
+            <button type="submit">Prüfung starten ...</button>
+        </form>
+        <h2>Prüfungsergebnisse für diesen Datensatz (Validierungsergebnis)</h2>
+        <p>Wenn Fehler angezeigt werden (oder MISSERFOLG) sind die Metadaten 
+            zu ändern oder zu ergänzen bis keine Fehler mehr angezeigt werden.
+            Fehler mit dcat:Catalog können hierbei ignoriert werden.
+        </p>
+        <iframe name="output" style="width:100%; height:400px;" src='about:blank'></iframe>
+    </body>
+</html>
+{% endblock %}

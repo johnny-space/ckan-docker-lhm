@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+        {% block heading_meta %}
+		{{ super() }}
+
+{% if c.userobj.sysadmin %}
+		<span style="font-size:12px;">({{# h.ogdmunich_package_tracking(package.id) #}} Zugriffe) </span>
+{% endif %}
+      {% endblock %}

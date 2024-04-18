@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+{% block resource_item_title %}
+        {{ super() }}
+        {% if c.userobj.sysadmin %}
+                <span style="font-size:12px;">({{res.tracking_summary.total}} Zugriffe) </span>
+        {% endif %}
+
+{% endblock %}

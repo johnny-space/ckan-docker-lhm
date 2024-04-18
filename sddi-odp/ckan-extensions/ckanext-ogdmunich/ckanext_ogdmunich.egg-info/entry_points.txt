@@ -1,0 +1,6 @@
+
+        [ckan.plugins]
+	ogdmunich=ckanext.ogdmunich.plugin:OGDMunichThemePlugin
+        # Add plugins here, e.g.
+        # myplugin=ckanext.ogdmunich.plugin:PluginClass
+    

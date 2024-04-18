@@ -1,0 +1,33 @@
+{% ckan_extends %}
+
+  {% block info %}
+  <div class="module module-narrow module-shallow context-info">
+    {% if has_context_title %}
+      <h2 class="module-heading"><i class="icon-building"></i> {{ _('Organization') }}</h2>
+    {% endif %}
+    <section class="module-content">
+      {% block image %}
+		{{ super() }}
+      {% endblock %}
+      <h1 class="heading">{{ organization.title or organization.name }}</h1>
+      {% if organization.description %}
+        <p class="description">
+          {{ h.markdown_extract(organization.description, 180) }}
+        </p>
+        <p class="read-more">
+          {% link_for _('read more'), named_route=organization.type ~ '.about', id=organization.name %}
+        </p>
+      {% else %}
+        <p class="empty">{{ _('There is no description for this organization') }}</p>
+      {% endif %}
+      {% if show_nums %} {# removed followers and follow-button #}
+        <div class="nums">
+          <dl>
+            <dt>{{ _('Datasets') }}</dt>
+            <dd>{{ h.SI_number_span(organization.package_count) }}</dd>
+          </dl>
+        </div>
+      {% endif %}
+    </section>
+  </div>
+  {% endblock %}

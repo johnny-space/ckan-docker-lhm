@@ -1,0 +1,11 @@
+setup.py
+ckanext/__init__.py
+ckanext/ogdmunich/__init__.py
+ckanext/ogdmunich/plugin.py
+ckanext_ogdmunich.egg-info/PKG-INFO
+ckanext_ogdmunich.egg-info/SOURCES.txt
+ckanext_ogdmunich.egg-info/dependency_links.txt
+ckanext_ogdmunich.egg-info/entry_points.txt
+ckanext_ogdmunich.egg-info/namespace_packages.txt
+ckanext_ogdmunich.egg-info/not-zip-safe
+ckanext_ogdmunich.egg-info/top_level.txt

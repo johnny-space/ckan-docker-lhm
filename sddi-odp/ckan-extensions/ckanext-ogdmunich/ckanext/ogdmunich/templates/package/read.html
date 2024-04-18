@@ -1,0 +1,17 @@
+{% ckan_extends %}
+
+{% block primary_content_inner %}
+	<div style="float:right;">
+		<img alt="" src="/images/btn_comment.png" style="vertical-align:middle; padding:0 4px 4px 4px;"><i>
+		<a style="color:black;" href="mailto:data.opengov@muenchen.de?subject=Anfrage zum Datensatz {{pkg.title}}&body=Sehr%20geehrte%20Damen%20und%20Herren,%0A%0Azu%20folgendem%20Datensatz%20habe%20ich%20eine%20Anmerkung oder Frage:%0A%0ATitel:%20{{pkg.title}}%0A%0AURL:%20{{h.full_current_url()}}%0A%0AMein%20Kommentar:%0A%0A%0A%0AViele%20Grüße,%0A" >R&uuml;ckmeldung</a>
+	</i>
+	</div>
+	{{ super() }}
+{% endblock %}
+
+{% block page_heading %}
+	{{ super() }}
+	{% if c.userobj.sysadmin %}
+                <!--span style="font-size:12px;">({{pkg.tracking_summary.total}} Zugriffe) </span-->
+	{% endif %}
+{% endblock %}

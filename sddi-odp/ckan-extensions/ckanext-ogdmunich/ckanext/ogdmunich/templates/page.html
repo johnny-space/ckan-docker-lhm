@@ -1,0 +1,28 @@
+{% ckan_extends %}
+
+{%- block page -%}
+<div id="page" >
+
+ {{ super() }}
+
+</div>
+{%- endblock -%}
+
+
+          {% block toolbar %}
+           <div style="margin-top:10px;"><img src="/images/LHM.png" alt="Offizielle Website der Stadtverwaltung München" title="Offizielle Website der Stadtverwaltung München" width="190" style="float:right;"> </div>
+	   <div class="toolbar">
+	        <h1 style="margin-bottom:0;">Open Data Portal</h1>
+		<ul id="breadcrumb">
+			<li>
+              {% block breadcrumb %}
+                {% if self.breadcrumb_content() | trim %}
+                  <ol class="breadcrumb">
+                    {% snippet 'snippets/home_breadcrumb_item.html' %}
+                    {% block breadcrumb_content %}{% endblock %}
+                  </ol>
+                {% endif %}
+              {% endblock %}
+		</li>
+            </div>
+          {% endblock %}

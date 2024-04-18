@@ -1,0 +1,7 @@
+<ul class="media-grid" data-module="media-grid" style="margin:0;background:none; border-style:none;">
+
+{% for group in h.ogdmunich_most_popular_groups() %}
+    {% snippet 'group/snippets/group_item.html', group=group, truncate=50, truncate_title=35, position=loop.index %}
+{% endfor %}
+
+</ul>

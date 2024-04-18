@@ -1,0 +1,8 @@
+{% set groups = h.get_featured_groups() %}
+
+<ul class="media-grid" data-module="media-grid" style="margin:0;background:none; border-style:none;">
+
+{% for group in groups %}
+    {% snippet 'group/snippets/group_item.html', group=group, truncate=50, truncate_title=35, position=loop.index %}
+{% endfor %}
+</ul>

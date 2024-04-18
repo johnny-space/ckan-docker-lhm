@@ -1,0 +1,52 @@
+{% extends "user/dashboard.html" %}
+
+{% block primary_content_inner %}
+<html>
+    <head><title>DCAT-AP.de Prüfung</title></head>
+    <body>
+        <h1>DCAT-AP.de Prüfung</h1>
+        <h2>Allgemeine Hinweise für den CKAN-Administrator</h2>
+        <p>Der CKAN-Administrator kann hier die für das GovData vorgesehene
+            Datensätze auf DCAT-AP.de Konformität prüfen.
+        </p> 
+        <h2>Prüfungsumfang</h2>
+        <p>Alle für die Übertragung an GovData (GovData Harvesting) vorgesehenen
+            Datensätze müssen das Tag 
+            <div class="card card-body"><code>GovData-Harvesting</code></div>
+            besitzen, dass sie
+            übertragen werden.</p>
+        <p>Damit können sukzessiv weitere Datensätze für Govdata freigegeben werden.</p>
+        <h2>DCAT-AT.de Prüfung</h2>
+        <p>Die Prüfung aller gewünschten Datensätze inkl. Ressourcen kann hier gestartet werden. 
+            Die Prüfung wird mit dem
+            <a href="https://www.itb.ec.europa.eu/shacl/dcat-ap.de/upload" target="_blank">
+                EU Validator für DCAT-AP.de
+            </a> durchgeführt. Das Ziel ist eine fehlerfreie Validierung.
+        </p>
+        <p>Die URL zur Prüfung aller zum GovData Harvesting vorgesehener Datensätze
+            lautet: 
+            <div class="card card-body">
+            <a href="{{ h.url_for(h.dcat_get_endpoint('catalog'), fq='tags:GovData-Harvesting', _format='rdf', _external=True) }}">
+                {{ h.url_for(h.dcat_get_endpoint('catalog'), fq='tags:GovData-Harvesting', _format='rdf', _external=True) }}
+            </a>
+            </div>  
+        </p>
+        <p>
+            Diese URL ist <a href="https://govdata.de" target="_blank">GovData</a> zum Harvesting mitzuteilen.
+        </p>
+        <form method="POST" enctype="multipart/form-data" action="https://www.itb.ec.europa.eu/shacl/dcat-ap.de/uploadm" target="output">
+            <input style="display:none" type="text" name="uri" value="{{ h.url_for(h.dcat_get_endpoint('catalog'), fq='tags:GovData-Harvesting', _format='rdf', _external=True) }}">
+            <input type="hidden" name="validationType" value="v20_de_spec_implr">
+            <button type="submit">Prüfung starten ...</button>
+        </form>
+        <h2>Prüfungsergebnisse / Validierungsergebnis</h2>
+        <p>Wenn Fehler angezeigt werden (oder MISSERFOLG) sind die Metadaten 
+            der betroffenen Datensätze zu ändern oder zu ergänzen bis 
+            keine Fehler mehr angezeigt werden.
+        </p>
+        <div class="card card-body">
+        <iframe name="output" style="width:100%; height:600px;" src='about:blank'></iframe>
+        </div>
+    </body>
+</html>
+{% endblock %}

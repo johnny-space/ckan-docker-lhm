@@ -1,0 +1,80 @@
+
+{% ckan_extends %}
+{% block header_wrapper %} 
+
+
+<header class="navbar navbar-static-top masthead">
+{% block header_debug %} 
+{% endblock %}
+<div id="header" class="">
+<div class="container">
+        <a id="logo" title="muenchen.de/opendata" href="http://www.muenchen.de/opendata" alt="Home muenchen.de/opendata">muenchen.de/opendata - Das OpenData-Portal der LHM M&uuml;nchen</a>
+
+      {% block header_site_search %}
+      <form class="section site-search simple-input" action="{% url_for 'dataset.search' %}" method="get">
+        <div class="field" style="float:right;">
+          <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
+          <input id="field-sitewide-search" type="text" class="form-control" name="q" placeholder="{{ _('Search') }}" aria-label="{{ _('Search datasets') }}"/>
+          <button class="btn-search" type="submit" aria-label="{{ _('Submit') }}"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+</div>
+
+      {% endblock %}
+</div>
+
+
+ <div class="container navcontainer">
+    <div class="navbar-right">
+      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button" aria-label="expand or collapse" aria-expanded="false">
+        <span class="sr-only">{{ _('Toggle navigation') }}</span>
+        <span class="fa fa-bars"></span>
+      </button>
+    </div>
+    <hgroup class="{{ g.header_class }} navbar-left">
+    </hgroup>
+
+    <div class="collapse navbar-collapse" id="main-navigation-toggle">
+      {% block header_site_navigation %}
+      <nav class="section navigation">
+        <ul class="nav nav-pills">
+          {% block header_site_navigation_tabs %} 
+	
+ {% if c.userobj %}
+                        {{ h.build_nav_main(
+                                ('home.index', _('Home')),
+                                ('dataset.search', _('Datasets')),
+                                ('organization.index', _('Organizations')),
+                                ('group.index', _('Groups')),
+                                ('showcase_blueprint.index', _('Showcases'))
+                        ) }}
+                {% else %}
+                        {{ h.build_nav_main(
+                                ('home.index', _('Home')),
+                                ('dataset.search', _('Datasets')),
+                                ('organization.index', _('Organizations')),
+                                ('group.index', _('Groups'))
+                        )}}
+                {% endif %}
+
+
+	{% endblock %}
+        </ul>
+      </nav>
+      {% endblock %} 
+    </div>
+  </div>
+
+</header>
+{% block header_account %}
+
+        {% if c.userobj %}
+                {{ super() }}
+        {% endif %}
+{% endblock %}
+
+{% endblock %}
+
+
+
+

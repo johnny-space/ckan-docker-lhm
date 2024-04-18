@@ -1,0 +1,24 @@
+{% extends "group/snippets/group_item.html" %}
+
+{% if position==-1 %}
+  {% block title %}
+    <h3 style="margin-bottom:20px;">{{ group.display_name|truncate(25, true) }} ({{group.package_count}})</h3>
+  {% endblock %}
+  {% block description %}
+	{# block removed #}
+  {% endblock %}
+  {% block datasets %}
+	{# block removed #}
+  {% endblock %}
+  <a href="{{ url }}" title="{{ _('View {name}').format(name=group.display_name) }}" class="media-view">
+    <span>{{ _('View {name}').format(name=group.display_name) }}</span>
+  </a>
+  {% if group.user_member %}
+    <input name="group_remove.{{ group.id }}" value="{{ _('Remove') }}" type="submit" class="btn btn-danger btn-small media-edit" title="{{ _('Remove dataset from this group') }}"/>
+  {% endif %} 
+{% endif %}
+
+</li>
+
+{% if position is divisibleby 4 %}
+ <li class="clearfix js-hide"></li> {% endif %}
