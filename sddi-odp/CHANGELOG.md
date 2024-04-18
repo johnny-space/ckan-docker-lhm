@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+18.04.2024:
+
+* FIX: Image Version für debug workflow angepasst
+
 17.04.2024:
 
 * ENH: Workflows für ckan-sddi-odp Packages
