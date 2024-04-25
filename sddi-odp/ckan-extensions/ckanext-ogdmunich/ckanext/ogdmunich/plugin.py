@@ -4,6 +4,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import logging
 from ckan.lib.helpers import json
+import ckan.lib.navl.dictization_functions as df
 from ckanext.spatial.interfaces import ISpatialHarvester
 import json
 from ckan.logic import NotFound, get_action
@@ -11,8 +12,13 @@ from ckan import model
 from ckan.model import Session
 from ckanext.ogdmunich import dcat_ap
 
+import json
+import os
 
+Invalid = df.Invalid
 log = logging.getLogger(__name__)
+
+# Helper functions
 
 def package_tracking(package_id):
     mypackage = toolkit.get_action('package_show')(data_dict={'id': package_id, 'include_tracking': True})
@@ -36,6 +42,31 @@ def most_popular_groups():
 
     return groupsWithPackages
 
+def hvd_category_list(field):
+    skript_verzeichnis = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(skript_verzeichnis)
+    hvd_list_path = os.path.join('resources', 'hvd_categories.json')
+    with open(hvd_list_path, 'r') as f:
+        hvd_list = json.load(f)
+    return hvd_list
+
+def frequency_list(field):
+    skript_verzeichnis = os.path.dirname(os.path.abspath(__file__))
+    os.chdir(skript_verzeichnis)
+    frequency_list_path = os.path.join('resources', 'frequency.json')
+    with open(frequency_list_path, 'r') as f:
+        frequency_list = json.load(f)
+    return frequency_list
+
+# Validator functions
+
+def is_musterdatensatz(value: str):
+    prefix = "https://musterdatenkatalog.de/def/musterdatensatz/"
+    if value.startswith(prefix):
+        return value
+    else:
+        raise Invalid(f'{value} ist keine gültige URI für den Musterdatenkatalog.\nMuss mit `https://musterdatenkatalog.de/def/musterdatensatz/` beginnen')
+
 class OGDMunichThemePlugin(plugins.SingletonPlugin):
     '''Theme plugin for OGD Munich.
 
@@ -45,9 +76,13 @@ class OGDMunichThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(ISpatialHarvester, inherit=True)
     plugins.implements(plugins.IBlueprint)
+    plugins.implements(plugins.IValidators)
 
     def get_blueprint(self):
         return dcat_ap.get_blueprints()
+
+    def get_validators(self):
+        return {"ogdmunich_is_musterdatensatz": is_musterdatensatz}
 
     def get_package_dict(self, context, data_dict):
         # Check the reference below to see all that's included on data_dict
@@ -203,4 +238,6 @@ class OGDMunichThemePlugin(plugins.SingletonPlugin):
         # Template helper function names should begin with the name of the
         # extension they belong to, to avoid clashing with functions from
         # other extensions.
-        return {'ogdmunich_most_popular_groups': most_popular_groups,  'ogdmunich_package_tracking':package_tracking}
+        return {'ogdmunich_most_popular_groups': most_popular_groups,  'ogdmunich_package_tracking':package_tracking,
+                'ogdmunich_hvd_category_list': hvd_category_list,
+                'ogdmunich_frequency_list': frequency_list}
