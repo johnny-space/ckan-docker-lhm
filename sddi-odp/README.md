@@ -1,9 +1,13 @@
 CKAN SDDI-ODP
 =========
 
-Image für die Erstellung des CKAN Opendata Portals der Stadt München.  
-Als Vorlage wurde das sddi-base Image verwendet.  
-Deployment findet im CAP statt.  
+In diesem Repo wurde das Image [sddi-base](https://github.com/it-at-m/ckan-docker/pkgs/container/ckan-sddi-base) als Vorlage verwendet und an die Anforderungen/Extensions der LHM angepasst (siehe unten).  
+
+CKAN-Version 2.9.9
+
+## Installation 
+ 
+    $ docker pull ghcr.io/ondics/ckan-sddi-odp:odp-katalog-1.1.0
 
 ## CKAN Extensions
 
