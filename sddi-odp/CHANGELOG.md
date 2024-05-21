@@ -1,6 +1,16 @@
 CHANGELOG
 =========
 
+21.05.2024 (v1.1.0):
+
+* ENH: API-Link zu Datensatz (in datasetview)
+* ENH: Metadaten-Links zu rdf, json, tt3, n3 (in datasetview)
+* ENH: OpenAPI View Plugin installiert
+
+25.04.2024:
+
+* ENH: Datensatzfelder Musterdatenkatalog, Update-Zyklus und HVD hinzugefügt über ckanext-scheming
+
 18.04.2024:
 
 * FIX: Image Version für debug workflow angepasst

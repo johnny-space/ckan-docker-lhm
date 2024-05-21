@@ -51,15 +51,17 @@
     {% snippet "snippets/social.html" %}
   {% endblock %}
 
-{# customized by solivstas #}
 {% block package_metadatalink %}
 	<section class="module module-narrow module-shallow">
-		<h2 class="module-heading"><i class="icon-medium icon-cogs"></i> Metadaten</h2>
-		<p class="module-content">
-		<a href="{{ h.url_for('api.action', ver=3, id=pkg.name, logic_function='package_show') }}">Link zu Metadaten </a>
-		</p>
+    <h2 class="module-heading"><i class="fa fa-download"></i> Metadaten nach DCAT-AP.de</h2>
+    <ul class="ogdmunich-metadata-list">
+      <li><a href="{{ h.url_for('api.action', ver=3, id=pkg.name, logic_function='package_show') }}" target="_blank">API (JSON)</a></li>
+      <li><a href="/dataset/{{ pkg.id }}.rdf" target="_blank">Download (RDF/XML)</a></li>
+      <li><a href="/dataset/{{ pkg.id }}.ttl" target="_blank">Download (Turtle)</a></li>
+      <li><a href="/dataset/{{ pkg.id }}.n3" target="_blank">Download (N3)</a></li>
+      <li><a href="/dataset/{{ pkg.id }}.jsonld" target="_blank">Download (JSON-LD)</a></li>
+    </ul>
 	</section>
-{# end customization #}
 
 {% endblock %}
   {% block package_license %}
