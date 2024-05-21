@@ -443,4 +443,10 @@ html {
 .img-fluid {
 	max-width: 100%;
 	height: auto;
-  }
+}
+
+/* package-sidebar */
+ul.ogdmunich-metadata-list {
+	list-style-type: none;
+	padding: 15px;
+}

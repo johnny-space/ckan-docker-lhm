@@ -193,11 +193,11 @@ RUN set -ex && \
 #   cd ${APP_DIR}/src/ckanext-ogdmunich && \
 #   pip wheel --wheel-dir=/wheels .
 
-# ckanext-openapiview
+# ckanext-openapiview #############################################################
 
-# RUN set -ex && \
-#   pip wheel --wheel-dir=/wheels \
-#   git+https://github.com/open-data/ckanext-openapiview.git#egg=ckanext-openapiview
+RUN set -ex && \
+  pip wheel --wheel-dir=/wheels \
+  git+https://github.com/open-data/ckanext-openapiview.git#egg=ckanext-openapiview
 
 # ckanext-spatial #############################################################
 FROM ghcr.io/keitaroinc/ckan:${CKAN_VERSION_BUILD_SPATIAL} as extbuild-spatial
@@ -234,7 +234,7 @@ RUN set -ex && \
 FROM ghcr.io/keitaroinc/ckan:${CKAN_VERSION_RUNTIME_STAGE} as runtime
 
 ENV CKAN__PLUGINS "image_view text_view recline_view recline_map_view recline_graph_view recline_grid_view \
-  webpage_view datastore xloader ogdmunich pages showcase resource_proxy geo_view geojson_view wmts_view shp_view \
+  webpage_view openapi_view datastore xloader ogdmunich pages showcase resource_proxy geo_view geojson_view wmts_view shp_view \
   harvest ckan_harvester csw_harvester dcat dcatde \
   dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data \
   spatial_metadata spatial_query scheming_datasets envvars"
@@ -347,8 +347,8 @@ RUN set -ex && \
   pip install -e .
 
 # ckanext-openapiview #############################################################
-# RUN set -ex && \
-#   pip install -e git+https://github.com/open-data/ckanext-openapiview.git#egg=ckanext-openapiview
+RUN set -ex && \
+  pip install -e git+https://github.com/open-data/ckanext-openapiview.git#egg=ckanext-openapiview
 
 # Copy additional files
 COPY --chown=ckan:ckan who.ini ${APP_DIR}/who.ini
@@ -390,7 +390,7 @@ RUN set -ex && \
   ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.type = custom" && \
   ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.custom.url = https://tile.openstreetmap.org/{z}/{x}/{y}.png" && \
   ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.attribution = Map tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors" && \
-  ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.type = wms" && \
+  # ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.type = wms" && \
   ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.wms.url = https://geoportal.muenchen.de/geoserver/gsm/wms" && \
   ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.wms.layer = gsm:g_stadtkarte_gesamt" && \
   ckan config-tool "${CKAN_INI}" "ckanext.spatial.common_map.wms.srs = EPSG:25832" && \
