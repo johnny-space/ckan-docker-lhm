@@ -30,9 +30,9 @@ Diese ermöglichen zusammen das Hochladen von strukturierten Ressourcen (wie CSV
 Insgesamt sind folgende Plugins aktiviert:  
 
     ENV CKAN__PLUGINS "image_view text_view recline_view recline_map_view recline_graph_view recline_grid_view \
-  webpage_view datastore datapusher ogdmunich pages showcase harvest ckan_harvester csw_harvester dcat dcatde \
-  dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data \
-  spatial_metadata spatial_query envvars"
+    webpage_view datastore datapusher ogdmunich pages showcase harvest ckan_harvester csw_harvester dcat dcatde \
+    dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data \
+    spatial_metadata spatial_query envvars"
 
 Die folgenden weiteren Extensions gehen über sddi-base hinaus und werden über das Dockerfile installiert und eingerichtet:  
 
