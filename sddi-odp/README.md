@@ -5,6 +5,10 @@ In diesem Repo wurde das Image [sddi-base](https://github.com/it-at-m/ckan-docke
 
 CKAN-Version 2.9.9
 
+## Branch sddi-odp-theme-2024
+
+enthält das neue ogdmunich Theme in `ckan-extensions/` mit Stand vom 22.05.2024 nach Vorgaben aus figma.
+
 ## Installation 
  
     $ docker pull ghcr.io/ondics/ckan-sddi-odp:odp-katalog-1.1.0

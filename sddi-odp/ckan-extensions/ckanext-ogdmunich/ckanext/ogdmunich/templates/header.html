@@ -7,20 +7,10 @@
 {% block header_debug %} 
 {% endblock %}
 <div id="header" class="">
-<div class="container">
-        <a id="logo" title="muenchen.de/opendata" href="http://www.muenchen.de/opendata" alt="Home muenchen.de/opendata">muenchen.de/opendata - Das OpenData-Portal der LHM M&uuml;nchen</a>
-
-      {% block header_site_search %}
-      <form class="section site-search simple-input" action="{% url_for 'dataset.search' %}" method="get">
-        <div class="field" style="float:right;">
-          <label for="field-sitewide-search">{% block header_site_search_label %}{{ _('Search Datasets') }}{% endblock %}</label>
-          <input id="field-sitewide-search" type="text" class="form-control" name="q" placeholder="{{ _('Search') }}" aria-label="{{ _('Search datasets') }}"/>
-          <button class="btn-search" type="submit" aria-label="{{ _('Submit') }}"><i class="fa fa-search"></i></button>
-        </div>
-      </form>
-</div>
-
-      {% endblock %}
+  <div class="container">
+          <a id="logotext" title="muenchen.de/opendata" href="http://www.muenchen.de/opendata" alt="Home muenchen.de/opendata">Open Data Portal</a>
+          <a id="logo" ><img src="/images/LHM_logo.png" alt="Offizielle Website der Stadtverwaltung München" title="Offizielle Website der Stadtverwaltung München" width="139"></a>
+  </div>
 </div>
 
 
@@ -42,7 +32,6 @@
 	
  {% if c.userobj %}
                         {{ h.build_nav_main(
-                                ('home.index', _('Home')),
                                 ('dataset.search', _('Datasets')),
                                 ('organization.index', _('Organizations')),
                                 ('group.index', _('Groups')),
@@ -50,7 +39,6 @@
                         ) }}
                 {% else %}
                         {{ h.build_nav_main(
-                                ('home.index', _('Home')),
                                 ('dataset.search', _('Datasets')),
                                 ('organization.index', _('Organizations')),
                                 ('group.index', _('Groups'))

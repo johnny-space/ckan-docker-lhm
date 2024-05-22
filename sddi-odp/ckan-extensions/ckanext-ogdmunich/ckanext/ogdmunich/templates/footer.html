@@ -1,57 +1,47 @@
 {% ckan_extends %}
 
     {% block footer_content %}
-	<div class="row">
+	<div class="row" style="margin-top: 64px;">
 	<div class="col-md-4">
-		<div class="headline"><h3>muenchen.de/opendata</h3> </div>
-			<div class="span8 footer-links">
-				<ul class="unstyled">
-					<li><a href="/pages/nutzungsbedingungen">Nutzungsbedingungen</a></li>
-					<li><a href="/pages/glossar">Glossar</a></li>
-					<li><a href="/pages/hilfe">Hilfe</a></li>
-					<li><a href="/pages/links">Links</a></li>
-					<li style="margin-top:10px;"><a href="https://twitter.com/opendata_muc"><img src="/images/Twitter_opendata_muc.png" title="Twitter Open Data Munich" alt="Open Data Munich Twitter"/></a></li>
-				</ul>
-			</div>
+		<div class="footer-headline"><h1>Open Data Portal M&uuml;nchen</h1> </div>
+		<br>
+		<div class="footer-content footer-mediaicons">
+			<a href="localhost:5000" target="_blank">
+				<img src="/images/facebook.png" alt="facebook">
+			</a>
+			<a href="localhost:5000" target="_blank" style="margin-left: 20px;">
+				<img src="/images/instagram.png" alt="instagram">
+			</a>
+			<a href="localhost:5000" target="_blank" style="margin-left: 20px;">
+				<img src="/images/youtube.png" alt="youtube">
+			</a>
+			<a href="localhost:5000" target="_blank" style="margin-left: 20px;">
+				<img src="/images/twitter.png" alt="twitter">
+			</a>
+		</div>
 	</div>
 	<div class="col-md-4 middle">
-		<div class="headline"><h3>Kontakt</h3></div>
-			<p>OpenData-Portal der Landeshauptstadt M&uuml;nchen</p>
-			<br/>
+		<div class="footer-headline"><h2>Rechtliches</h2></div>
+		<br>
+		<div class="footer-content">
 			<ul class="unstyled">
-				<li><a href="/pages/portal"> &Uuml;ber das Portal</a></li>
-				<li><a href="/pages/impressum">Impressum - Datenschutzerkl&auml;rung</a></li>
-				<li><a href="https://www.it-muenchen-blog.de" alt="Münchner IT-Blog" title="Münchner IT-Blog">M&uuml;nchner IT-Blog</a></li>
-				<li>Kontakt: <a href="mailto:egovernment@muenchen.de">egovernment@muenchen.de</a> </li>
-				<li style="margin-top:10px;"><a href="http://www.muenchen.de/eogovernment" alt="E- und Open-Government München" title="E- und Open-Government München"><img src="/images/eoGov.png" alt="eGovernment Image" title="eGovernment"/></a></li>
+				<li><a href="/pages/nutzungsbedingungen">Nutzungsbedingungen</a></li>
+				<li><a href="/pages/glossar">Barrierefreiheit</a></li>
+				<li><a href="/pages/hilfe">Datenschutz</a></li>
+				<li><a href="/pages/links">Impressum</a></li>
 			</ul>
-
+		</div>
 	</div>
 
 	<div class="col-md-4 attribution">
-		<div class="headline"><h3>&nbsp;</h3></div>
-			 {% snippet "snippets/language_selector.html" %}
-
-		<div class="footer-links">
-	<ul class="unstyled">
-			 <li>
-				<a class="hide-text" href="http://www.ckan.org">
-	  				<img src="/images/logo_64px_wide.png" width="64" title="CKAN" alt="CKAN" /> 
-				</a>
-			</li>
-
-			<li>
-				<a href="https://www.okfn.de" title="OKFN">
-					<img style="margin-top: 10px;"  src="/images/open-data.png" width="150" title="Open Data Logo" alt="Open Data Logo"/>
-				</a>
-			</li>
-	</ul>
+		<div class="footer-headline"><h2>Kontakt</h2></div>
+		<br>
+		<div class="footer-content">
+			<h4>Landeshauptstadt M&uuml;nchen</h4>
+			<p>IT-Referat, E- und Open Government</p>
+			<br>
+			<div class="glyphicon-envelope"> <a href="mailto:egovernment@muenchen.de"> egovernment@muenchen.de</a></div>
 		</div>
 	</div>
-	</div>
-       {% if c.userobj %}
-          RPM-Release v39
-       {% endif %}
-
 
     {% endblock %}

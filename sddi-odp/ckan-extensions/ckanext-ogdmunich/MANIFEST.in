@@ -1,2 +1,2 @@
 include license.json
-recursive-include ckanext/ogdmunich *.html *.json *.js *.less *.css *.yaml *.yml *.mo *.po *.pot *.ico *.png *.svg *.woff *.woff2 *.eot *.ttf
+recursive-include ckanext/ogdmunich *.html *.json *.js *.less *.css *.yml *.mo *.po *.pot *.ico *.png *.svg *.woff *.woff2 *.eot *.ttf

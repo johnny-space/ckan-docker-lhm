@@ -2,7 +2,8 @@
 
 {% if position==-1 %}
   {% block title %}
-    <h3 style="margin-bottom:20px;">{{ group.display_name|truncate(25, true) }} ({{group.package_count}})</h3>
+    <h3 class="grouppanel-desc" style="margin-bottom:20px;">{{ group.display_name|truncate(22, true) }}</h3>
+    <p class="grouppanel-counter">{{group.package_count}} Datensätze</p>
   {% endblock %}
   {% block description %}
 	{# block removed #}

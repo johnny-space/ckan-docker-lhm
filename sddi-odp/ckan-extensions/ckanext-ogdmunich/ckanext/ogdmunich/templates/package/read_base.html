@@ -1,71 +1,47 @@
-{% extends "package/base.html" %}
+{% ckan_extends %}
 
-{% set showcase_dataset_showcase_list_route = 'showcase_blueprint.dataset_showcase_list' %}
+{% block ogdmunich_package_title %}
 
-{% block subtitle %}{{ pkg.title or pkg.name }} {{ g.template_title_delimiter }} {{ super() }}{% endblock %}
+        {% if pkg.private %}
+          <span class="dataset-private label label-inverse pull-right">
+            <i class="fa fa-lock"></i>
+            {{ _('Private') }}
+          </span>
+        {% endif %}
+        {% block package_archive_notice %}
+          {% if is_activity_archive %}
+            <div class="alert alert-danger">
+              {% trans url=h.url_for(pkg.type ~ '.read', id=pkg.id) %}
+              You're currently viewing an old version of this dataset. To see the
+              current version, click <a href="{{ url }}">here</a>.
+              {% endtrans %}
+            </div>
+          {% endif %}
+        {% endblock %}
+        <div class="ogdmunich_dataset_heading">
+        <h2>
+            {{ h.dataset_display_name(pkg) }}
+            {% if pkg.state.startswith('draft') %}
+              [{{ _('Draft') }}]
+            {% endif %}
+            {% if pkg.state == 'deleted' %}
+              [{{ _('Deleted') }}]
+            {% endif %}
+        </h2>
+        <ul>
+          <a href="/api/3/action/package_show?id={{ pkg_dict.id }}" title="Dataset-API"target="_blank"><li><i class="fa fa-bookmark" aria-hidden="true"></i></li></a>
+          <a href="/catalog.rdf?fq=name:{{ pkg_dict.name }}" title="DCAT/XML Representation" target="_blank"><li><i class="fa fa-share-alt" aria-hidden="true"></i></li></a>
+          <a href="{{ h.url_for('%s.read' % pkg.type, id=pkg.name) }}" title="Permalink" ><li><i class="fa fa-eye" aria-hidden="true"></i></li></a>
+          <a href="mailto:?body={{ h.this_site_url() }}{{ h.url_for('%s.read' % pkg.type, id=pkg.name) }}" title="{{ _('Mail with Dataset') }}"><li><i class="fa fa-arrow-down" aria-hidden="true"></i></li></a>
+        </ul>
+        </div>
+        <p class="ogdmunich_last_updated">last updated 
+        {% if pkg_dict.metadata_modified %}
+        {% snippet 'snippets/ogdmunich_date.html', datetime_obj=pkg_dict.metadata_modified %}
+        {% endif %}
+        </p>
 
-{% block links -%}
-  {{ super() }}
-  <link rel="alternate" type="application/rdf+xml" href="{{ h.url_for(pkg.type ~ '_read', id=pkg.id, format='rdf', qualified=True) }}"/>
-{% endblock -%}
-
-{% block head_extras -%}
-  {{ super() }}
-  {% set description = h.markdown_extract(pkg.notes, extract_length=200)|forceescape %}
-  <meta property="og:title" content="{{ h.dataset_display_name(pkg) }} - {{ g.site_title }}">
-  <meta property="og:description" content="{{ description|forceescape|trim }}">
-{% endblock -%}
-
-{% block content_action %}
-  {% if not is_activity_archive %}
-    {% if h.check_access('package_update', {'id':pkg.id }) %}
-      {% link_for _('Manage'), named_route=pkg.type ~ '.edit', id=pkg.name, class_='btn', icon='wrench' %}
-    {% endif %}
-  {% endif %}
-{% endblock %}
-
-{% block content_primary_nav %}
-  {{ h.build_nav_icon(dataset_type ~ '.read', _('Dataset'), id=pkg.id if is_activity_archive else pkg.name, icon='sitemap') }}
-  {{ h.build_nav_icon(dataset_type ~ '.groups', _('Groups'), id=pkg.id if is_activity_archive else pkg.name, icon='users') }}
-  {{ h.build_nav_icon(dataset_type ~ '.activity', _('Activity Stream'), id=pkg.id if is_activity_archive else pkg.name, icon='clock-o') }}
-  {{ h.build_nav_icon(showcase_dataset_showcase_list_route, _('Related'), id=pkg.name, icon='trophy') }}
-  {# h.build_nav_icon('related_list', _('Related'), id=pkg.name) #}
 {% endblock %}
 
 {% block secondary_content %}
-
-  {% block secondary_help_content %}{% endblock %}
-
-  {% block package_info %}
-    {% snippet 'package/snippets/info.html', pkg=pkg %}
-  {% endblock %}
-
-  {% block package_organization %}
-    {% if pkg.organization %}
-      {% set org = h.get_organization(pkg.organization.id) %}
-      {% snippet "snippets/organization.html", organization=org, has_context_title=true %}
-    {% endif %}
-  {% endblock %}
-
-  {% block package_social %}
-    {% snippet "snippets/social.html" %}
-  {% endblock %}
-
-{% block package_metadatalink %}
-	<section class="module module-narrow module-shallow">
-    <h2 class="module-heading"><i class="fa fa-download"></i> Metadaten nach DCAT-AP.de</h2>
-    <ul class="ogdmunich-metadata-list">
-      <li><a href="{{ h.url_for('api.action', ver=3, id=pkg.name, logic_function='package_show') }}" target="_blank">API (JSON)</a></li>
-      <li><a href="/dataset/{{ pkg.id }}.rdf" target="_blank">Download (RDF/XML)</a></li>
-      <li><a href="/dataset/{{ pkg.id }}.ttl" target="_blank">Download (Turtle)</a></li>
-      <li><a href="/dataset/{{ pkg.id }}.n3" target="_blank">Download (N3)</a></li>
-      <li><a href="/dataset/{{ pkg.id }}.jsonld" target="_blank">Download (JSON-LD)</a></li>
-    </ul>
-	</section>
-
-{% endblock %}
-  {% block package_license %}
-    {% snippet "snippets/license.html", pkg_dict=pkg %}
-  {% endblock %}
-
 {% endblock %}

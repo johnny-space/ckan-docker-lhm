@@ -5,18 +5,10 @@
     {% if intro %}
       {{ h.render_markdown(intro) }}
     {% else %}
-      <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
-      <p>
-        {% trans %}This is a nice introductory paragraph about CKAN or the site
-        in general. We don't have any copy to go here yet but soon we will
-        {% endtrans %}
+      <h1>Willkommen beim Open Data Portal M&uuml;nchen</h1>
+      <p >
+        Entdecken Sie offene Datensätze aus der Stadtverwaltung M&uuml;nchen!
       </p>
     {% endif %}
     </div>
-  <section class="featured media-overlay">
-    <a class="media-image" href="#">
-	<img src="{{g.site_logo }}" alt="Welcome Logo" title="Welcome Logo"/>
-
-    </a>
-  </section>
 </div>

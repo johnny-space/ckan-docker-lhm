@@ -3,23 +3,37 @@
     text-shadow: none;
 }
 
-.homepage .media-item {
-	height:180px;
+@font-face {
+    font-display: swap; 
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/roboto-condensed/RobotoCondensed-Bold.ttf') format('truetype'); 
 }
 
+@font-face {
+    font-display: swap; 
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/open-sans/OpenSans_Condensed-Regular.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-display: swap; 
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('/fonts/open-sans/OpenSans_Condensed-Italic.ttf') format('truetype'); 
+}
 
 body {
     margin: 0 auto;
-    font-family: Arial,Helvetica,sans-serif;
+    font-family: 'Open Sans',sans-serif;
     font-size: 12px;
     line-height: 1.4;
     background: none repeat scroll 0% 0% #FFF;
-    color: #333333;
-}
-
-
-.site-footer a, a {
-	color: #005a9f;
+    color: #3A5368;
 }
 
 .masthead .container {
@@ -28,6 +42,10 @@ body {
 
 .toolbar .breadcrumb a {
 	color: #505050 !important;
+}
+
+.toolbar {
+	margin-top: 10px;
 }
 
 a:hover, a:active {
@@ -42,19 +60,22 @@ a:focus {
 }
 
 .search-form h2 {
-	color:#666666;
+	color:#3A5368;
 }
 
 h1 {
-	font-size:28px;
-	color: #666666;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:38px;
+	color: #3A5368;
 }
 h2 {
-	font-size:23px;
-	color: #666666;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:28px;
+	color: #3A5368;
 }
 h3 {
-	color:#666666;
+	font-family: 'Roboto Condensed', sans-serif;
+	color:#3A5368;
 	font-size:14px;
 }
 
@@ -93,7 +114,6 @@ h3 {
 	color: #ffffff;
 }
 
-
 .navbar .nav > li > a {
 	padding: 8px 12px;
 }
@@ -101,20 +121,58 @@ h3 {
 	box-shadow:none;
 }
 
-
 /* HOME-PAGE */
-.homepage .module-search .module-content {
-	background-color:#ffffff;
-	border-radius:none;
+
+.homepage-top {
+	background-color: #F2F6FA;
 }
+
+.module-content h1 {
+	font-size: 38px;
+}
+
+.module-content p {
+	font-size: 18px;
+}
+
+.homepage .module-search .tags h3 {
+	font-size: 14px;
+	line-height: 1.42857143;
+	padding: 2px 0px;
+}
+
+.homepage .module-search .module-content {
+	border-radius:none;
+	background-color:#F2F6FA;
+	padding-left: 0px;
+}
+
+.homepage .module-search {
+	padding: 0 45px 0 45px;
+	background-color:#F2F6FA;
+}
+
+#field-main-search {
+	border-radius: 0px;
+	border-color: #337BB2;
+}
+
+.homepage-bottom {
+	background-color:#F2F6FA;
+}
+
 .box {
 	border-radius:0px;
 	box-shadow:none;
 	word-wrap:break-word;
+	border-width: 0px;
+	background-color:#F2F6FA;
 }
 
 .homepage .module-search .tags {
-	background-color:#d9d9d9;
+	background-color:#F2F6FA;
+	max-width: 800px;
+	padding-left: 0px;
 }
 
 .col1 .module-content:first-child {
@@ -127,31 +185,84 @@ h3 {
 	/*width:420px;*/
 }
 
-
-.module-content p {
-	font-size:1.2em;
-	margin-left:10px;
-	margin-right:10px;
+.module-content {
+	padding: 10px 45px 0px 45px;
 }
 
 .module-content p img {
 	margin-left:-5px;
 }
-.module-content div h1 {
-	margin-left:10px;
-}
 
 .module-content.box div {
-	min-height:145px;
+	min-height:100px;
 }
 
+.search-form {
+	max-width: 800px;
+}
 
+.stats {
+	margin: 0px 45px 0px 45px;
+}
 
-.media-overlay .media-heading { display: none; }
+.ogdmunich_homepage_info {
+	border-bottom: solid 1px #BDD4EA;
+	background-color: #F2F6FA;
+	font-size: 18px;
+	height: 59px;
+}
 
+.ogdmunich_homepage_info .desc {
+	padding: 20px 0px 0px 30px;
+}
 
-.homepage .hero[role="main"] {
-	background-color: #e1e1e1;
+.ogdmunich_homepage_info .icondiv {
+	padding-top: 18px;
+}
+
+.ogdmunich_homepage_info .icon {
+	fill: #005A9F;
+	height: 24px;
+	width: 24px;
+}
+
+.stats-kachel {
+	background-color: #FFFFFF;
+	text-align: center;
+	height: 196px;
+}
+
+.stats-count {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700;
+	font-size:72px;
+	color: #005A9F;
+	margin-top: 50px;
+}
+
+.stats-desc {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700;
+	font-size:24px;
+	color: #3A5368;
+	margin-top: 40px;
+}
+
+.grouppanel-header {
+	font-size: 28px;
+	padding-left: 30px;
+}
+
+.grouppanel-desc {
+	font-size: 28px;
+}
+
+.grouppanel-counter {
+	font-size: 18px;
+}
+
+.media-overlay .media-heading { 
+	display: none; 
 }
 
 .homepage .media-image img {
@@ -163,9 +274,30 @@ h3 {
 	background:none;
 	border:none;
 }
+
+.homepage .media-item {
+	height:214px;
+	width: 30%;
+	padding: 24px;
+	margin: 0px 0px 30px 30px; 
+}
+
+.homepage .media-view {
+	border-radius: 0px;
+	border-color: #BDD4EA;
+}
+
 .media-item:hover {
 	z-index:0;
 }
+
+.homepage .media-image {
+	border-radius: 0px;
+	width: 72px;
+	height: 72px;
+	background-color: #E5EEF5;
+}
+
 #page {
     z-index: 1;
     height: 100%;
@@ -195,7 +327,7 @@ html.lt-ie9 #page {
 }
 
 #header {
-	height: 40px;
+	height: 72px;
 	margin: 0px;
 	border-top: 0px none;
 	z-index: 1000;
@@ -205,23 +337,34 @@ html.lt-ie9 #page {
 	width: 100%;
 	overflow: hidden;
 	display: block;
-	background: none repeat scroll 0% 0% #1b98d5;
+	background: none repeat scroll 0% 0% #004376;
 }
 
-#header #logo {
-	background: url('/images/logo.png') no-repeat scroll 0px 0px;
+#header #logotext {
 	position: absolute;
-	top: 0px;
-	background-size: contain;
-	width: 200px;
+	top: 20px;
+	width: 404px;
 	height: 100%;
 	padding: 0px;
 	display: block;
-	overflow: hidden;
-	text-indent: -999999px;
 	margin-top:2px;
-
+	font-size: 28px;
+	font-weight: 700;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-family: 'Roboto Condensed', sans-serif;
 }
+
+#header #logotext a:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#header #logo {
+	float:right;
+	margin-top: 15px;
+}
+
 #page > header {
 	z-index: 10000;
 }
@@ -251,7 +394,7 @@ html.lt-ie9 #page {
 }
 
 .masthead .navcontainer {
-	height: 36px;
+	height: 44px;
 	margin: 0px;
 	position: fixed;
 	z-index: 1000;
@@ -263,7 +406,7 @@ html.lt-ie9 #page {
     	position: relative;
     	width: 100%;
     	z-index: 1;
-	top: 40px;
+	top: 72px;
 	background: none repeat scroll 0 0 #005a9f;
 }
 
@@ -368,11 +511,18 @@ ul#breadcrumb li {
 
 }
 
-
 .breadcrumb {
     background-color: inherit;
 
 }
+
+/* .main Container */ 
+
+.wrapper {
+    border: none;
+    box-shadow: none;
+}
+
 
 /*CONTENT */
 [role="main"], .main {
@@ -383,8 +533,9 @@ ul#breadcrumb li {
 /* FOOTER */
 
 .site-footer {
-	background: none repeat scroll 0 0 #f5f5f5;
+	background: none repeat scroll 0 0 #005A9F;
 	border-top: 1px solid #ddd;
+	font-size: 16px;
 }
 .site-footer .content {
 	position:inherit;
@@ -395,21 +546,55 @@ ul#breadcrumb li {
 	padding: 0;
 }
 .site-footer, .site-footer label, .site-footer small {
-	color: #333333;
+	color: #FFFFFF;
 }
 
 .site-footer .col {
 /*    float: left; */
     padding: 20px 0;
+	color: #FFFFFF;
 }
 
-
-.site-footer .col h3 {
+.site-footer .col h2 {
     border-bottom: 5px solid #e1e1e1;
-    color: #444444;
-    margin-bottom: 15px;
-    margin-top: 0;
+    color: #FFFFFF;
+	margin: 0px 0 15px 0;
     padding-bottom: 10px;
+}
+.site-footer li {
+	margin: 3px 0 3px 0;
+}
+
+.site-footer h1 {
+	color: #FFFFFF;
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 0;
+}
+
+.site-footer h2 {
+	color: #FFFFFF;
+	font-size: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+	margin: 3px 0 0 0;
+}
+
+.site-footer h4 {
+	color: #FFFFFF;
+	font-size: 16px;
+	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+	margin: 0 0 3px 0;
+}
+
+.site-footer a, a {
+	color: #005a9f;
+}
+
+.site-footer a {
+	color: #FFFFFF;
+}
+
+.site-footer p {
+	font-weight: 400;
 }
 
 .site-footer .col .content {
@@ -417,9 +602,12 @@ ul#breadcrumb li {
     width: 100%;
 }
 
+.footer-content {
+	font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
-.footer-links ul li {
-    margin-bottom: 0px;
+.footer-mediaicons a:hover, a:active{
+		text-decoration:none;
 }
 
 html {
@@ -437,16 +625,487 @@ html {
 	overflow:hidden;
 }
 
+/* ogdmunich Searchform */ 
 
-/* Showcase Fix für ckan 2.9.9 */
+.ogdmunich_search_form {
+	background-color: #F2F6FA;
+	padding-left: 15px;
+}
+
+.ogdmunich_search_inputheading {
+	font-size: 18px;
+}
+
+.input-group-btn .btn.btn-default.btn-lg {
+	border-radius: 0px;
+	border-left: none;
+	border-color: #337BB2;
+}
+
+.input-group-btn .btn.btn-default.btn-lg:hover {
+	background-color: #FFFFFF;
+}
+
+.ogdmunich_search_form .search-form .search-input.search-giant button {
+	margin-top: 12px;
+}
+
+.search-input.form-group.search-giant {
+	margin-top: 12px;
+}
+
+/* ogdmunich dataset */ 
+
+/* dataset filter + count */ 
+
+.dataset_orderby_label {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.ogdmunich_datasets_clearall {
+	font-size: 16px;
+}
+
+.ogdmunich_datasets_clearall a {
+	color: #3A5368;
+}
+
+.ogdmunich_datasets_filterheader {
+	font-size: 16px;
+}
+
+.ogdmunich_datasets_filterlist {
+    margin: 10px 0px 20px 0px;
+	font-size: 14px;
+}
+
+.ogdmunich_datasets_filterlist p {
+    margin-bottom: 48px;
+}
+
+.ogdmunich_datasets_filterlist .facet {
+    color: #1D1B5C;
+}
+
+.ogdmunich_datasets_filterlist .pill {
+    background-color: #D0E1F0;
+    color: #3A5368;
+    font-weight: bold;
+    padding-top: 1px;
+	margin-top: 5px;
+}
+
+.ogdmunich_datasets_filterlist .pill i {
+    color: #3A5368;
+    line-height: inherit;
+    vertical-align: bottom;
+}
+
+.ogdmunich_datasets_found {
+	margin: 0px;
+}
+
+.ogdmunich_dataset_order_by label {
+	font-size: 18px;
+	font-weight: 400;
+	margin-top: 5px;
+}
+
+#field-order-by {
+	padding: 0px 0px 0px 10px;
+	font-size: 18px;
+	border-radius: unset;
+}
+
+/* left */
+
+section.module.module-narrow.module-shallow .module-heading,
+.module.module-narrow .module-heading {
+    background-color: #fff;
+    border: none;
+    font-size: 18px;
+    padding-top: 20px;
+    color:#3A5368;
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .img-fluid {
 	max-width: 100%;
 	height: auto;
+  }
+
+.homepage a:not(.btn, .ogdmunich_data_link, .media-view, .tag, .label, .ogdmunich_facet_link, .select2-choice),
+.main a:not(.btn, .ogdmunich_data_link, .media-view, .tag, .label, .ogdmunich_facet_link, .select2-choice) {
+	position: relative;
+	overflow: hidden;
 }
 
-/* package-sidebar */
-ul.ogdmunich-metadata-list {
-	list-style-type: none;
-	padding: 15px;
+.homepage a:not(.btn, .ogdmunich_data_link, .media-view, .tag, .label, .ogdmunich_facet_link, .select2-choice):hover,
+.main a:not(.btn, .ogdmunich_data_link, .media-view, .tag, .label, .ogdmunich_facet_link, .select2-choice):hover,
+.homepage .ogdmunich_about .ogdmunich_col:hover p {
+    text-decoration: none;
+}
+
+.main .ogdmunich_dataset_page .table-striped tr.toggle-seperator {
+    display: inherit;
+}
+
+.main .ogdmunich_dataset_page {
+    width: 100%;
+    border: none;
+}
+
+.ogdmunich_dataset_page .notes.embedded-content h1,
+.ogdmunich_dataset_page .notes.embedded-content h2,
+.ogdmunich_dataset_page .notes.embedded-content h3 {
+    margin-top: 0;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading h2,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading ul {
+    margin-bottom: 5px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .col-md-6 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_metadata_value {
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .col-md-6:last-child {
+    padding-left: 10px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .col-md-6 .ogdmunich_dataset_groups_link:after {
+    content: ",";
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .col-md-6 .ogdmunich_dataset_groups_link:last-child:after {
+    content: "";
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos ul.dataset-resources {
+    margin-top: 0;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos ul.dataset-resources .label-default {
+    padding: 0.2em 0.6em 0.2em;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .dropdown.btn-group {
+    margin-top: 8px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .dropdown.btn-group a i {
+    margin-right: 5px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .dropdown.btn-group a span {
+    margin-left: 5px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos ul.dropdown-menu > li > a {
+    padding: 3px 20px 3px 30px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos ul.dropdown-menu > li > a > i {
+    margin-right: 10px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a {
+    color: #1D1B5C;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-color: #1D1B5C;
+    margin-left: 5px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a.ogdmunich_btn_download {
+    background-color: #1D1B5C;
+    color: #FFF;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a:hover,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a:focus,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a:active:hover,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a:active:focus {
+    background-color: #E7E6EE;
+    color: #1D1B5C;
+    border: 2px solid transparent;
+}
+
+.main .ogdmunich_dataset_page .table-striped tr {
+    height: 48px;
+}
+
+.main .ogdmunich_dataset_page .table-striped th,
+.main .ogdmunich_dataset_page .table-striped td {
+    vertical-align: middle;
+}
+
+.main .ogdmunich_dataset_page .table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #E7E6EE;
+}
+
+.main .ogdmunich_dataset_page .table-striped tbody tr:nth-child(2n) td, 
+.main .ogdmunich_dataset_page .table-striped tbody tr:nth-child(2n) th {
+    background-color: #FFF;
+}
+
+.main .ogdmunich_dataset_page table,
+.main .ogdmunich_dataset_page table th,
+.main .ogdmunich_dataset_page table td {
+    border: none;
+}
+
+.main .ogdmunich_dataset_page table tr.toggle-show a.show-more::after {
+    content: " \f067";
+    font-family: FontAwesome;
+}
+
+.main .ogdmunich_dataset_page table {
+    width: 100%;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_ressources span.label {
+    position: absolute;
+    top: -2px;
+    left: -10px;
+    top: -12px;
+    left: -70px;
+    width: 80px;
+    height: 80px;
+    transform: scale(0.53);
+    padding-top: 30px;
+    font-size: 24px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_ressources section {
+    margin-top: 25px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_ressources .btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_ressources .btn-primary:active, .btn-primary.active,
+.open > .dropdown-toggle.btn-primary:hover {
+    color: #fff;
+    background-image: none;
+    background-color: #1D1B5C;
+    border-color: #1D1B5C;
+}
+
+.main .ogdmunich_dataset_page h1 {
+    margin-bottom: 0;
+}
+
+.main .ogdmunich_dataset_page p.ogdmunich_last_updated {
+    margin-bottom: 40px;
+}
+
+section.module.module-narrow.module-shallow li {
+    border-bottom: none;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+	.wrapper::before { 
+		border: none;
+		display: none;
+	}
+}
+
+section.module.module-narrow.module-shallow li.nav-item.active a {
+    background-color: #F2F6FA;
+}
+
+section.module.module-narrow.module-shallow .nav-item a,
+.module.module-narrow .nav-item a {
+    color: #3A5368;
+    font-size: 18px;
+}
+
+section.module.module-narrow.module-shallow .nav-item .item-label {
+	padding-left: 12px;
+}
+
+.nav-item > a::before {
+	content: '';
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: solid 2px #337BB2;
+	background-color: transparent;
+}
+
+.nav-item.active > a::before {
+	position: unset;
+	content: '';
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	border: solid 6px #005A9F;
+
+}
+
+section.module.module-narrow.module-shallow li.nav-item a:hover:after,
+section.module.module-narrow.module-shallow li.nav-item.active a:after {
+    background-image: none;
+}
+
+section.module.module-narrow.module-shallow li.nav-item.active a:hover {
+    background-color: #E7E6EE;
+}
+
+section.module.module-narrow.module-shallow li.nav-item.active a:hover:after {
+    background-image: none;
+}
+
+section.module.module-narrow.module-shallow li.nav-item .badge {
+    font-size: 16px;
+    font-weight: 400;
+	color: #3A5368;
+	background-color: transparent;
+	padding-top: 0px;
+}
+
+section.module.module-narrow.module-shallow li.nav-item.active .badge {
+    color: #3A5368;
+}
+
+section.module.module-narrow.module-shallow p.module-footer {
+	border: none;
+}
+
+.main .toolbar a,
+.main .ogdmunich_dataset_heading a,
+.main .page-header .nav-tabs a,
+.homepage .stats a,
+.homepage .ogdmunich_about a,
+.main .image a,
+.main .ogdmunich_social a {
+    text-decoration: none;
+}
+
+.main .toolbar a:hover,
+.main .ogdmunich_dataset_heading a:hover,
+.homepage .stats a:hover,
+.homepage .ogdmunich_about a:hover,
+.main .image a:hover,
+.main .ogdmunich_social a:hover {
+    text-decoration: none;
+    background-color: unset;
+}
+
+.main .toolbar a,
+.main .ogdmunich_dataset_heading a,
+.homepage .stats a,
+.main .image a {
+    position: static;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading ul a {
+    margin: 0 10px 0 0;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading ul li {
+    list-style: none;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #E7E6EE;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 7px;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading ul li:hover {
+    background-color: #D0CDDE;
+}
+
+.main .ogdmunich_dataset_page .ogdmunich_dataset_heading ul li i {
+    border: none;
+    color: #1D1B5C;
+}
+
+.btn-default[href*="/edit/"],
+.btn-default[href$="/edit"],
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a[href$="/edit"],
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a[href*="/edit/"] {
+    background-color: #F1B823;
+    border: 2px solid transparent;
+}
+
+.btn-default[href*="/edit/"]:hover,
+.btn-default[href$="/edit"]:hover,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a[href$="/edit"]:hover,
+.main .ogdmunich_dataset_page .ogdmunich_dataset_infos .ogdmunich_button_explore a[href*="/edit/"]:hover {
+    background-color: #d19803;
+    border: 2px solid transparent;
+}
+
+/* right */ 
+
+.ogdmunich_datasets_page {
+	border-left: solid 1px #BDD4EA;
+}
+
+li.dataset-item {
+	border-color: #BDD4EA;
+	border-bottom-style: solid;
+}
+
+.dataset-heading {
+    font-size: 24px;
+    line-height: 30px;
+	text-decoration: none;
+}
+
+.dataset-heading a {
+	color: #3A5368;
+}
+
+.category-name {
+	color: #005A9F;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.dataset-content div, .dataset-content .empty {
+	font-size: 16px;
+	line-height: 24px;
+	color: #3A5368;
+}
+
+.label-default {
+	border-radius: 24px;
+	padding: 4px 16px 4px 16px;
+	font-size: 16px;
+	color: #3A5368;
+	background-color: #D0E1F0 !important;
+}
+
+.ogdmunich_dataset_desc {
+	padding-bottom: 10px;
 }

@@ -1,40 +1,117 @@
 {% set groups = h.get_featured_groups() %}
-
-<div role="main" class="hero">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-	{% snippet 'home/snippets/promoted.html' %}
-      </div>
-      <div class="col-md-6">
-	{% snippet 'home/snippets/search.html' %}
-	{% snippet 'home/snippets/stats.html' %}
-      </div>
-    </div>
-  </div>
+<div class="homepage-top">
+	<div role="main">
+		<div class="container">
+			<div class="row">
+			{% snippet 'home/snippets/promoted.html' %}
+			{% snippet 'home/snippets/search.html' %}
+			</div>
+		</div>
+	</div>
 </div>
+
+
 <div role="main">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-
-	{% block popular_groups %}	
+		<h3 class="grouppanel-header">Datengruppen</h3>
+		{% block popular_groups %}	
 		<ul class="media-grid" data-module="media-grid" style="margin:0;background:none; border-style:none;">
 			{% for group in h.ogdmunich_most_popular_groups() %}
-    				{% snippet "group/snippets/ogdmunich_group_home_item.html", group=group, truncate=50, truncate_title=3, position=loop.index, isGroup=true %}
+					{% snippet "group/snippets/ogdmunich_group_home_item.html", group=group, truncate=50, truncate_title=3, position=loop.index, isGroup=true %}
 			{% endfor %}
 			{#position -1 means that is outside the group-list and should represent a link of all groups #}
 
 			{% if h.ogdmunich_most_popular_groups()|count() == 11 %}
-        			<li class="media-item">
-            				<h3 style="margin-top:123px;">Weitere Gruppen...</h3>
-          				<a href="/group" title="" class="media-view"></a>
-        			</li>
+					<li class="media-item">
+							<h3 style="margin-top:123px;">Weitere Gruppen...</h3>
+						<a href="/group" title="" class="media-view"></a>
+					</li>
 			{% endif %}
 		</ul>
-	{% endblock %}
-
+		{% endblock %}
       </div>
     </div>
+	<div class="row" style="padding-left: 46px; padding-right: 16px;">
+		<h2>Infos zum Open Data Portal</h2>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="ogdmunich_homepage_info">
+					<a href="">
+						<div class="row">
+							<div class="desc col-md-10">
+								Über das Open Data Portal
+							</div>
+							<div class="icondiv col-md-2">
+								<svg aria-hidden="true" class="icon">
+									<use xlink:href="/icons/ogdmunich_icons.svg#icon-arrow-right" />
+								</svg>
+							</div>
+						</div>
+					</a>
+				</div>		  
+			</div>
+			<div class="col-md-6">
+				<div class="ogdmunich_homepage_info">
+					<a href="">
+						<div class="row">
+							<div class="desc col-md-10">
+								Erste Schritte im Portal
+							</div>
+							<div class="icondiv col-md-2">
+								<svg aria-hidden="true" class="icon">
+									<use xlink:href="/icons/ogdmunich_icons.svg#icon-arrow-right" />
+								</svg>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 25px;">
+			<div class="col-md-6">
+				<div class="ogdmunich_homepage_info">
+					<a href="">
+						<div class="row">
+							<div class="desc col-md-10">
+								Open Data Begriffe im Überblick
+							</div>
+							<div class="icondiv col-md-2">
+								<svg aria-hidden="true" class="icon">
+									<use xlink:href="/icons/ogdmunich_icons.svg#icon-arrow-right" />
+								</svg>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="ogdmunich_homepage_info">
+					<a href="">
+						<div class="row">
+							<div class="desc col-md-10">
+								Links zu Open Data
+							</div>
+							<div class="icondiv col-md-2">
+								<svg aria-hidden="true" class="icon">
+									<use xlink:href="/icons/ogdmunich_icons.svg#icon-arrow-right" />
+								</svg>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
   </div>
+</div>
+<div class="homepage-bottom">
+	<div role="main">
+		<div class="container">
+			<div class="row">
+				{% snippet 'home/snippets/stats.html' %}
+			</div>
+		</div>
+	</div>
 </div>

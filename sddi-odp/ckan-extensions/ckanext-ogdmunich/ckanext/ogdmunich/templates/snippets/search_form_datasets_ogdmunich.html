@@ -1,0 +1,123 @@
+{% import 'macros/form.html' as form %}
+
+{% set placeholder = placeholder if placeholder else _('Search for data...') %}
+{% set sorting = sorting if sorting else [(_('Name Ascending'), 'name asc'), (_('Name Descending'), 'name desc')] %}
+{% set search_class = search_class if search_class else 'search-giant' %}
+{% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
+{% set form_id = form_id if form_id else false %}
+<div class="ogdmunich_search_form">
+  <form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
+    <div class="col-md-12 input-group">
+      <h1 class="ogdmunich_search_heading">Datensätze</h1>
+      <span class="ogdmunich_search_inputheading">Datensätze suchen</span>
+    {% block search_input %}
+    <form class="module-content search-form" method="get" action="{% url_for 'dataset.search' %}">
+      <div class="search-input form-group search-giant">
+        <input aria-label="{% block header_site_search_label %}{{ _('Search datasets') }}{% endblock %}" id="field-main-search" type="text" class="form-control" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
+        <button type="submit" aria-labelledby="search-label">
+          <i class="fa fa-search"></i>
+          <span class="sr-only" id="search-label">{{ _('Search') }}</span>
+        </button>
+      </div>
+    </form>
+  {% endblock %}
+
+  {% block search_search_fields %}
+    {% if fields -%}
+      <span>{{ form.hidden_from_list(fields=fields) }}</span>
+    {%- endif %}
+  {% endblock %}
+</div>
+</div>
+
+<div class="row" style="margin-bottom: 10px;">
+  <div class="col-md-4">
+{% block search_facets %}
+{% if facets %}
+    <div class="row">
+      <div class="col-md-6">
+        <span class="ogdmunich_datasets_filterheader">Filters</span>
+      </div>
+      <div class="col-md-6">
+        <span class="ogdmunich_datasets_clearall">
+          <a href="{{ facets.remove_field(facets.fields) }}" 
+            class="remove" title="{{ _('Remove') }}">
+            Clear all  
+            <i class="fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p class="ogdmunich_datasets_filterlist">
+          {% for field in facets.fields %}
+            {% set search_facets_items = facets.search.get(field)['items'] if facets.search and field in facets.search else [] %}
+            <span class="facet">{{ facets.titles.get(field) }}:</span>
+            {% for value in facets.fields[field] %}
+              <a href="{{ facets.remove_field(field, value) }}" class="remove" title="{{ _('Remove') }}">
+              <span class="filtered pill">
+                {%- if facets.translated_fields and (field,value) in facets.translated_fields -%}
+                  {{ facets.translated_fields[(field,value)] }}
+                {%- else -%}
+                  {{ h.list_dict_filter(search_facets_items, 'name', 'display_name', value) }}
+                {%- endif %}
+                <i class="fa fa-times"></i></a>
+              </span>
+            {% endfor %}
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+{% endif %}
+{% endblock %}
+</div>
+<div class="col-md-4">
+  {% block search_title %}
+  {% if not error %}
+    <h2 class="ogdmunich_datasets_found">{% snippet 'snippets/search_result_text.html', query=query, count=count, type=type %}</h2>
+  {% else %}
+    <h2 class="ogdmunich_datasets_found">Error</h2>
+  {% endif %}
+  {% endblock %}
+</div>
+
+<div class="col-md-4">
+{% block search_sortby %}
+    {% if sorting %}
+      <div class="row">
+        <div class="ogdmunich_dataset_order_by form-select form-group control-order-by">
+          <div class="col-md-4">
+            <label for="field-order-by dataset_orderby_label">{{ _('Order by') }}</label>
+          </div>
+          <div class="col-md-8">
+            <select id="field-order-by" name="sort" class="form-control form-select">
+              {% for label, value in sorting %}
+                {% if label and value %}
+                  <option value="{{ value }}"{% if sorting_selected == value %} selected="selected"{% endif %}>{{ label }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            {% block search_sortby_button %}
+            <button class="btn btn-default js-hide" type="submit">{{ _('Go') }}</button>
+            {% endblock %}
+        </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+</div>
+</div>
+</form>
+
+{% if show_empty and count == 0 and not error %}
+  {% trans %}
+    <p class="extra">Please try another search.</p>
+  {% endtrans %}
+{% endif %}
+
+{% if error %}
+  {% trans %}
+    <p id="search-error"><strong>There was an error while searching.</strong> Please try again.</p>
+  {% endtrans %}
+{% endif %}
