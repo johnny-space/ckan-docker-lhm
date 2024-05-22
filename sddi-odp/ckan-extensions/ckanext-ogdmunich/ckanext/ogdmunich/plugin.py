@@ -10,7 +10,7 @@ import json
 from ckan.logic import NotFound, get_action
 from ckan import model
 from ckan.model import Session
-from ckanext.ogdmunich import dcat_ap, logic
+from ckanext.ogdmunich import dcat_ap
 
 import json
 import os
@@ -79,19 +79,12 @@ class OGDMunichThemePlugin(plugins.SingletonPlugin):
     plugins.implements(ISpatialHarvester, inherit=True)
     plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.IValidators)
-    # plugins.implements(plugins.IActions, inherit=True)
 
     def get_blueprint(self):
         return dcat_ap.get_blueprints()
 
     def get_validators(self):
         return {"ogdmunich_is_musterdatensatz": is_musterdatensatz}
-
-    # # IActions
-    # def get_actions(self):
-    #     return {
-    #         "ogdmunich_autosuggest": logic.ogdmunich_autosuggest,
-    #     }
 
     def get_package_dict(self, context, data_dict):
         # Check the reference below to see all that's included on data_dict

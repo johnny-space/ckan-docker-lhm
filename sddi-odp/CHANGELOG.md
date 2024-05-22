@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+22.05.2024:
+
+* FIX: Import logic Funktionen aus plugin.py entfernt
+
 21.05.2024 (v1.1.0):
 
 * ENH: API-Link zu Datensatz (in datasetview)
