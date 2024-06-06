@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+06.06.2024:
+
+* FIX: Base Image für Dockerfile.debug aktualisiert
+
 22.05.2024:
 
 * FIX: Import logic Funktionen aus plugin.py entfernt
